@@ -1,5 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { APP_BACKGROUND } from "../../constants/colors";
 
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     /*
@@ -8,6 +9,8 @@ const GlobalStyle = createGlobalStyle`
         License: none (public domain)
         +
         box-sizing best practices
+        +
+        project additions
     */
 
     html, body, div, span, applet, object, iframe,
@@ -61,6 +64,10 @@ const GlobalStyle = createGlobalStyle`
     *:before,
     *:after {
         box-sizing: inherit;
+    }
+    /* project additions */
+    body {
+        background-color: ${APP_BACKGROUND};
     }
 `;
 
