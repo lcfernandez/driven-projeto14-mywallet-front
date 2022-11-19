@@ -1,5 +1,5 @@
-export const APP_BACKGROUND = "#8C11BE";
+export const APP_BACKGROUND_COLOR = "#8C11BE";
 
-export const APP_TEXT = "#FFFFFF";
+export const APP_TEXT_COLOR = "#FFFFFF";
 
-export const BUTTON = "#A328D6";
+export const BUTTON_COLOR = "#A328D6";

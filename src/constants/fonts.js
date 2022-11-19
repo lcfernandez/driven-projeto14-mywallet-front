@@ -1,3 +1,3 @@
-export const APP_BASE = "'Raleway', sans-serif";
+export const APP_BASE_FONT = "'Raleway', sans-serif";
 
-export const LOGO = "'Saira Stencil One', cursive";
+export const LOGO_FONT = "'Saira Stencil One', cursive";
