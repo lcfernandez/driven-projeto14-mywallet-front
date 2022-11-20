@@ -9,15 +9,18 @@ const FormStyle = styled.form`
     width: 100%;
 
     button {
+        align-items: center;
         background-color: ${BUTTON_BG_COLOR};
         border: none;
         border-radius: 5px;
         color: ${APP_TXT_COLOR};
         cursor: pointer;
+        display: flex;
         height: 48px;
         font-family: ${APP_BASE_FONT};
         font-size: 20px;
         font-weight: 700;
+        justify-content: center;
         margin: 6px 0;
     }
 
