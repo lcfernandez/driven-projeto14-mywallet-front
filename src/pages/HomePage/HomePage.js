@@ -30,7 +30,7 @@ export default function HomePage() {
                     <button>Entrar</button>
                 </FormStyle>
 
-                <LinkStyle to={"/cadastro"}>
+                <LinkStyle to="/cadastro">
                     Primeira vez? Cadastre-se!
                 </LinkStyle>
             </HomeContentStyle>

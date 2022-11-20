@@ -12,8 +12,8 @@ export default function Header({ icon, text }) {
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    width="32"
-                    height="32"
+                    width="28"
+                    height="28"
                 >
                     <path
                         fill="none"

@@ -7,6 +7,7 @@ const HomeContainerStyle = styled.div`
     display: flex;
     font-family: ${APP_BASE_FONT};
     height: 100vh;
+    padding: 0 25px;
     width: 100vw;
 `;
 

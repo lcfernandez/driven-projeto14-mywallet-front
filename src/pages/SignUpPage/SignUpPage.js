@@ -42,7 +42,7 @@ export default function SignUpPage() {
                     <button>Cadastrar</button>
                 </FormStyle>
 
-                <LinkStyle to={"/"}>
+                <LinkStyle to="/">
                     Já tem uma conta? Entre agora!
                 </LinkStyle>
             </HomeContentStyle>

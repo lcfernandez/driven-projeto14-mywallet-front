@@ -30,11 +30,11 @@ const Buttons = styled.div`
     justify-content: space-between;
     margin: 15px 0;
 
-    button:nth-child(1) {
+    a:nth-child(1) {
         margin-right: 7.5px;
     }
 
-    button:nth-child(2) {
+    a:nth-child(2) {
         margin-left: 7.5px;
     }
 `;

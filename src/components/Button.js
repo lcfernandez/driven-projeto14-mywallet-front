@@ -1,24 +1,26 @@
 import { APP_TXT_COLOR, BUTTON_BG_COLOR } from "../constants/colors";
 import styled from "styled-components";
 import { APP_BASE_FONT } from "../constants/fonts";
+import { Link } from "react-router-dom";
 
 export default function Button({ type }) {
     return (
-        <ButtonContainer>
+        <ButtonContainer to="/registros/novo">
             <ion-icon name={`${type === "income" ? "add" : "remove"}-circle-outline`} />
             
-            Nova <br /> {type === "income" ? "entrada" : "saída"}
+            <p>
+                Nova
+                <br />
+                {type === "income" ? "entrada" : "saída"}
+            </p>
         </ButtonContainer>
     );
 }
 
-const ButtonContainer = styled.button`
-    align-items: flex-start;
+const ButtonContainer = styled(Link)`
     background-color: ${BUTTON_BG_COLOR};
-    border: none;
     border-radius: 5px;
     color: ${APP_TXT_COLOR};
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     font-family: ${APP_BASE_FONT};
@@ -28,10 +30,14 @@ const ButtonContainer = styled.button`
     line-height: 20px;
     justify-content: space-between;
     padding: 10px;
-    text-align: left;
+    text-decoration: none;
     width: 50%;
 
     ion-icon {
-        font-size: 25px;
+        font-size: 26px;
+    }
+
+    p {
+        margin-left: 3px;
     }
 `;
