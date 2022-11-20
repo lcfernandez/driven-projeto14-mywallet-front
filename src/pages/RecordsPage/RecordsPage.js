@@ -1,7 +1,14 @@
+import { APP_BASE_FONT } from "../../constants/fonts";
+import {
+    DATE_COLOR,
+    EXPENSE_COLOR,
+    INCOME_COLOR,
+    LIST_BG_COLOR,
+    LIST_TXT_EMPTY_COLOR,
+    REMOVE_COLOR
+} from "../../constants/colors";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import { DATE_COLOR, EXPENSE_COLOR, INCOME_COLOR, LIST_BG_COLOR, LIST_TXT_EMPTY_COLOR, REMOVE_COLOR } from "../../constants/colors";
-import { APP_BASE_FONT } from "../../constants/fonts";
 
 import styled from "styled-components";
 

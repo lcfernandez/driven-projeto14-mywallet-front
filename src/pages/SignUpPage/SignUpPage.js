@@ -1,10 +1,10 @@
+import { APP_TXT_COLOR } from "../../constants/colors";
+import { API_URI } from "../../constants/url";
 import FormStyle from "../../assets/styles/FormStyle";
 import HomeContainerStyle from "../../assets/styles/HomeContainerStyle";
 import HomeContentStyle from "../../assets/styles/HomeContentStyle";
 import LinkStyle from "../../assets/styles/LinkStyle";
 import Logo from "../../components/Logo";
-import { APP_TXT_COLOR } from "../../constants/colors";
-import { API_URI } from "../../constants/url";
 
 import { ThreeDots } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";

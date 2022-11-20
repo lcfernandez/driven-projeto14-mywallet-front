@@ -1,5 +1,5 @@
-import { APP_TXT_COLOR, BUTTON_BG_COLOR } from "../../constants/colors";
 import { APP_BASE_FONT } from "../../constants/fonts";
+import { APP_TXT_COLOR, BUTTON_BG_COLOR } from "../../constants/colors";
 
 import styled from "styled-components";
 
