@@ -1,4 +1,4 @@
-import { APP_BACKGROUND_COLOR } from "../../constants/colors";
+import { APP_BG_COLOR } from "../../constants/colors";
 
 import { createGlobalStyle } from "styled-components";
 
@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
     }
     /* project additions */
     body {
-        background-color: ${APP_BACKGROUND_COLOR};
+        background-color: ${APP_BG_COLOR};
     }
 `;
 

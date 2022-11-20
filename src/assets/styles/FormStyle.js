@@ -1,4 +1,4 @@
-import { APP_TEXT_COLOR, BUTTON_COLOR } from "../../constants/colors";
+import { APP_TXT_COLOR, BUTTON_BG_COLOR } from "../../constants/colors";
 
 import styled from "styled-components";
 
@@ -8,10 +8,10 @@ const FormStyle = styled.form`
     width: calc(100% - 30px);
 
     button {
-        background-color: ${BUTTON_COLOR};
+        background-color: ${BUTTON_BG_COLOR};
         border: none;
         border-radius: 5px;
-        color: ${APP_TEXT_COLOR};
+        color: ${APP_TXT_COLOR};
         cursor: pointer;
         height: 48px;
         font-family: inherit;

@@ -1,4 +1,4 @@
-import { APP_TEXT_COLOR } from "../constants/colors";
+import { APP_TXT_COLOR } from "../constants/colors";
 import { LOGO_FONT } from "../constants/fonts";
 
 import styled from "styled-components";
@@ -12,7 +12,7 @@ export default function Logo() {
 }
 
 const LogoContainer = styled.div`
-    color: ${APP_TEXT_COLOR};
+    color: ${APP_TXT_COLOR};
     font-family: ${LOGO_FONT};
     font-size: 32px;
     line-height: 50px;
