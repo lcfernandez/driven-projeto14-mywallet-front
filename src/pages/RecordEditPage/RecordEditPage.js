@@ -15,7 +15,7 @@ export default function RecordEditPage() {
             <FormStyle>
                 <input
                     min="0.01"
-                    onWheel={e => e.target.blur()}
+                    onWheel={e => e.target.blur()} // remove scroll
                     placeholder="Valor"
                     required
                     step="0.01"
