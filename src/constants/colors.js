@@ -13,3 +13,5 @@ export const INCOME_COLOR = "#03AC00";
 export const LIST_TXT_EMPTY_COLOR = "#868686";
 
 export const LIST_BG_COLOR = "#FFFFFF";
+
+export const REMOVE_COLOR = "#C6C6C6";

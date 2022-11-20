@@ -1,6 +1,6 @@
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import { DATE_COLOR, EXPENSE_COLOR, INCOME_COLOR, LIST_BG_COLOR, LIST_TXT_EMPTY_COLOR } from "../../constants/colors";
+import { DATE_COLOR, EXPENSE_COLOR, INCOME_COLOR, LIST_BG_COLOR, LIST_TXT_EMPTY_COLOR, REMOVE_COLOR } from "../../constants/colors";
 import { APP_BASE_FONT } from "../../constants/fonts";
 
 import styled from "styled-components";
@@ -17,7 +17,9 @@ export default function RecordsPage() {
                             <span>30/11</span> Almoço mãe
                         </div>
 
-                        <Amount type="expense">39,90</Amount>
+                        <div>
+                            <span><Amount type="expense">39,90</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -25,7 +27,9 @@ export default function RecordsPage() {
                             <span>27/11</span> Mercado
                         </div>
 
-                        <Amount type="expense">542,54</Amount>
+                        <div>
+                            <span><Amount type="expense">542,54</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -33,7 +37,9 @@ export default function RecordsPage() {
                             <span>26/11</span> Compras churrasco
                         </div>
 
-                        <Amount type="expense">67,60</Amount>
+                        <div>
+                            <span><Amount type="expense">67,60</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -41,7 +47,9 @@ export default function RecordsPage() {
                             <span>20/11</span> Empréstimo Maria
                         </div>
 
-                        <Amount type="income">500,00</Amount>
+                        <div>
+                            <span><Amount type="income">500,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -49,7 +57,9 @@ export default function RecordsPage() {
                             <span>15/11</span> Salário
                         </div>
 
-                        <Amount type="income">3000,00</Amount>
+                        <div>
+                            <span><Amount type="income">3000,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
 
                     <li>
@@ -57,7 +67,9 @@ export default function RecordsPage() {
                             <span>30/11</span> Almoço mãe
                         </div>
 
-                        <Amount type="expense">39,90</Amount>
+                        <div>
+                            <span><Amount type="expense">39,90</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -65,7 +77,9 @@ export default function RecordsPage() {
                             <span>27/11</span> Mercado
                         </div>
 
-                        <Amount type="expense">542,54</Amount>
+                        <div>
+                            <span><Amount type="expense">542,54</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -73,7 +87,9 @@ export default function RecordsPage() {
                             <span>26/11</span> Compras churrasco
                         </div>
 
-                        <Amount type="expense">67,60</Amount>
+                        <div>
+                            <span><Amount type="expense">67,60</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -81,7 +97,9 @@ export default function RecordsPage() {
                             <span>20/11</span> Empréstimo Maria
                         </div>
 
-                        <Amount type="income">500,00</Amount>
+                        <div>
+                            <span><Amount type="income">500,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -89,7 +107,9 @@ export default function RecordsPage() {
                             <span>15/11</span> Salário
                         </div>
 
-                        <Amount type="income">3000,00</Amount>
+                        <div>
+                            <span><Amount type="income">3000,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
 
                     <li>
@@ -97,7 +117,9 @@ export default function RecordsPage() {
                             <span>30/11</span> Almoço mãe
                         </div>
 
-                        <Amount type="expense">39,90</Amount>
+                        <div>
+                            <span><Amount type="expense">39,90</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -105,7 +127,9 @@ export default function RecordsPage() {
                             <span>27/11</span> Mercado
                         </div>
 
-                        <Amount type="expense">542,54</Amount>
+                        <div>
+                            <span><Amount type="expense">542,54</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -113,7 +137,9 @@ export default function RecordsPage() {
                             <span>26/11</span> Compras churrasco
                         </div>
 
-                        <Amount type="expense">67,60</Amount>
+                        <div>
+                            <span><Amount type="expense">67,60</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -121,7 +147,9 @@ export default function RecordsPage() {
                             <span>20/11</span> Empréstimo Maria
                         </div>
 
-                        <Amount type="income">500,00</Amount>
+                        <div>
+                            <span><Amount type="income">500,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                     
                     <li>
@@ -129,7 +157,9 @@ export default function RecordsPage() {
                             <span>15/11</span> Salário
                         </div>
 
-                        <Amount type="income">3000,00</Amount>
+                        <div>
+                            <span><Amount type="income">3000,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
+                        </div>
                     </li>
                 </ul>
 
@@ -203,12 +233,22 @@ const RecordsList = styled.div`
         font-size: 16px;
         line-height: 36px;
         overflow: scroll;
-        padding: 23px 10px;
+        padding: 23px 6px 23px 10px;
         width: 100%;
 
         li {
             display: flex;
             justify-content: space-between;
+
+            div:nth-child(2) {
+                align-items: center;
+                display: flex;
+            }
+
+            ion-icon {
+                color: ${REMOVE_COLOR};
+                margin-left: 5px;
+            }
 
             span {
                 color: ${DATE_COLOR};
