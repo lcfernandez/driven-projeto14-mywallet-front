@@ -1,1 +1,1 @@
-export const API_URI = "https://mywallet-api-5y56.onrender.com";
+export const API_URI = "http://localhost:5000";
