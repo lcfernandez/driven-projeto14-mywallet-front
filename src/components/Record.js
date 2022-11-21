@@ -10,7 +10,7 @@ export default function Record({amount, date, description, type}) {
             </div>
 
             <div>
-                <span>{amount.toFixed(2).toString().replace(".", ",")}</span> <ion-icon name="close-outline"></ion-icon>
+                <span>{Number(amount).toFixed(2).toString().replace(".", ",")}</span> <ion-icon name="close-outline"></ion-icon>
             </div>
         </RecordContainer>
     );

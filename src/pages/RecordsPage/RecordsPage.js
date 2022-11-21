@@ -15,6 +15,7 @@ import TokenContext from "../../contexts/TokenContext";
 
 import { ThreeDots } from "react-loader-spinner";
 import { useContext, useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -24,6 +25,8 @@ export default function RecordsPage({ setRecordType }) {
     const [balance, setBalance] = useState(0);
     const [name, setName] = useState("");
     const [records, setRecords] = useState(undefined);
+
+    const navigate = useNavigate();
 
     function handleRecords() {
         if (!records) {
@@ -48,7 +51,7 @@ export default function RecordsPage({ setRecordType }) {
 
                     <Balance balance={balance}>
                         <div>SALDO</div>
-                        <div>{balance.toFixed(2).toString().replace(".", ",").slice(1)}</div>
+                        <div>{Math.abs(balance).toString().replace(".", ",")}</div>
                     </Balance>
                 </>
             );
@@ -56,6 +59,10 @@ export default function RecordsPage({ setRecordType }) {
     }
 
     useEffect(() => {
+        if (!token) {
+            navigate("/registros");
+        }
+
         const config = {
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -66,7 +73,7 @@ export default function RecordsPage({ setRecordType }) {
             .get(`${API_URI}/record`, config)
             .then(
                 res => {
-                    setBalance(res.data.balance);
+                    setBalance(Number(res.data.balance).toFixed(2));
                     setName(res.data.user);
                     setRecords(res.data.records);
                 }
