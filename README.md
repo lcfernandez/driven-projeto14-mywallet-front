@@ -1,3 +1,15 @@
+# driven-projeto14-mywallet-front
+
+* **Projeto #14 - MyWallet** do aluno Luiz Cláudio F. Fernandez, Turma 8 da Driven.
+
+* No momento, não é recomendado usar a versão de deploy do projeto.
+
+* Projeto para ser executado localmente junto com a sua [API](https://github.com/lcfernandez/driven-projeto14-mywallet-back).
+
+* Por padrão, é considerado que a API local estará rodando na porta 5000. Caso não seja o caso da sua configuração, edite a variável `ÀPI_URI` no arquivo `src/constants/url.js`.
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
