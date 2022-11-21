@@ -3,14 +3,14 @@ import Header from "../../components/Header";
 
 import styled from "styled-components";
 
-export default function RecordNewPage() {
+export default function RecordNewPage({ recordType }) {
     function createRecord(e) {
         e.preventDefault(); // prevent form redirect
     }
 
     return (
         <RecordNewPageContainer onSubmit={createRecord}>
-            <Header text="Nova entrada/saída" />
+            <Header text={`Nova ${recordType === "expense" ? "saída" : "entrada"}`} />
 
             <FormStyle>
                 <input
@@ -29,7 +29,7 @@ export default function RecordNewPage() {
                 />
 
                 <button>
-                    Salvar entrada/saída
+                    Salvar {recordType === "expense" ? "saída" : "entrada"}
                 </button>
             </FormStyle>
         </RecordNewPageContainer>

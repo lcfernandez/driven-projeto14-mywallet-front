@@ -18,7 +18,7 @@ import { useContext, useEffect, useState } from "react"
 import axios from "axios";
 import styled from "styled-components";
 
-export default function RecordsPage() {
+export default function RecordsPage({ setRecordType }) {
     const [token] = useContext(TokenContext);
 
     const [balance, setBalance] = useState(0);
@@ -89,9 +89,9 @@ export default function RecordsPage() {
             </RecordsList>
 
             <Buttons>
-                <Button type="income" />
+                <Button setRecordType={setRecordType} type="income" />
                 
-                <Button type="expense" />
+                <Button setRecordType={setRecordType} type="expense" />
             </Buttons>
         </RecordsPageContainer>
     );

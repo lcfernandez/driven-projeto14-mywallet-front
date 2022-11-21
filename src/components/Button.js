@@ -4,9 +4,9 @@ import { APP_TXT_COLOR, BUTTON_BG_COLOR } from "../constants/colors";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Button({ type }) {
+export default function Button({ setRecordType, type }) {
     return (
-        <ButtonContainer to="/registros/novo">
+        <ButtonContainer onClick={() => setRecordType(type)} to="/registros/novo">
             <ion-icon name={`${type === "income" ? "add" : "remove"}-circle-outline`} />
             
             <p>
