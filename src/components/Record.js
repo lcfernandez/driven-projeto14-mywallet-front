@@ -67,6 +67,7 @@ const RecordContainer = styled.li`
         span:nth-child(2) {
             cursor: pointer;
             margin-right: 4px;
+            word-break: break-all;
         }
     }
 

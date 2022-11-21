@@ -74,8 +74,10 @@ const HeaderContainer = styled.div`
     font-weight: 700;
     justify-content: space-between;
     padding: 25px 0;
+    word-break: break-word;
 
     svg {
         cursor: pointer;
+        min-width: 28px;
     }
 `;
