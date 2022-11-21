@@ -1,15 +1,52 @@
 import { APP_BASE_FONT } from "../constants/fonts";
 import { APP_TXT_COLOR } from "../constants/colors";
+import { API_URI } from "../constants/url";
 
+import TokenContext from "../contexts/TokenContext";
+
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import axios from "axios";
 
 export default function Header({ icon, text }) {
+    const [token, setToken] = useContext(TokenContext);
+
+    const navigate = useNavigate();
+
+    function signOut() {
+        if (window.confirm("Deseja mesmo sair?")) {
+            const config = {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            };
+
+            axios
+                .post(`${API_URI}/sign-out`, {}, config)
+                .then(
+                    () => {
+                        localStorage.removeItem("token");
+                        setToken(undefined);
+                        navigate("/");
+                    }  
+                )
+                .catch(
+                    err => {
+                        console.error(
+                            err.response.data.message || err.response.data
+                        );
+                    }
+                );
+        }
+    }
     return (
         <HeaderContainer>
             {text}
 
             {icon &&
                 <svg
+                    onClick={signOut}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     width="28"
@@ -37,4 +74,8 @@ const HeaderContainer = styled.div`
     font-weight: 700;
     justify-content: space-between;
     padding: 25px 0;
+
+    svg {
+        cursor: pointer;
+    }
 `;

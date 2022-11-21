@@ -60,7 +60,7 @@ export default function RecordsPage({ setRecordType }) {
 
     useEffect(() => {
         if (!token) {
-            navigate("/registros");
+            navigate("/");
         }
 
         const config = {

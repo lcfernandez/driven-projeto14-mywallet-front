@@ -14,7 +14,7 @@ import { useState } from "react";
 function App() {
     const [recordType, setRecordType] = useState(undefined);
     const [token, setToken] = useState(
-        localStorage.getItem("token") || ""
+        localStorage.getItem("token") || undefined
     );
 
     return (
