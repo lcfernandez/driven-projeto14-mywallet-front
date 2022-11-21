@@ -22,9 +22,10 @@ import styled from "styled-components";
 export default function RecordsPage({ setRecordType }) {
     const [token] = useContext(TokenContext);
 
-    const [balance, setBalance] = useState(0);
+    const [balance, setBalance] = useState(undefined);
     const [name, setName] = useState("");
     const [records, setRecords] = useState(undefined);
+    const [update, setUpdate] = useState(false);
 
     const navigate = useNavigate();
 
@@ -43,8 +44,11 @@ export default function RecordsPage({ setRecordType }) {
                                     amount={record.amount}
                                     date={record.date}
                                     description={record.description}
+                                    id={record._id}
                                     key={record._id}
                                     type={record.type}
+                                    setUpdate={setUpdate}
+                                    update={update}
                                 />
                         )}
                     </ul>
@@ -85,7 +89,7 @@ export default function RecordsPage({ setRecordType }) {
                     );
                 }
             );
-    }, []);
+    }, [update]);
 
     return (
         <RecordsPageContainer>

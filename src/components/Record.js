@@ -1,8 +1,41 @@
+import { API_URI } from "../constants/url";
 import { DATE_COLOR, EXPENSE_COLOR, INCOME_COLOR, REMOVE_COLOR } from "../constants/colors";
 
+import TokenContext from "../contexts/TokenContext";
+
+import { useContext } from "react";
+import axios from "axios";
 import styled from "styled-components";
 
-export default function Record({amount, date, description, type}) {
+export default function Record({amount, date, description, id, type, setUpdate, update}) {
+    const [token] = useContext(TokenContext);
+
+    function deleteRecord() {
+        if (window.confirm(`Deseja mesmo apagar o registro "${description}"?`)) {
+            const config = {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            };
+
+            axios
+                .delete(`${API_URI}/record/${id}`, config)
+                .then(
+                    () => {
+                        alert("Registro apagado com sucesso!")
+                        setUpdate(!update);
+                    }
+                )
+                .catch(
+                    err => {
+                        console.error(
+                            err.response.data.message || err.response.data
+                        );
+                    }
+                )
+        }
+    }
+
     return (
         <RecordContainer type={type}>
             <div>
@@ -10,7 +43,9 @@ export default function Record({amount, date, description, type}) {
             </div>
 
             <div>
-                <span>{Number(amount).toFixed(2).toString().replace(".", ",")}</span> <ion-icon name="close-outline"></ion-icon>
+                <span>{Number(amount).toFixed(2).toString().replace(".", ",")}</span>
+                
+                <ion-icon name="close-outline" onClick={deleteRecord} />
             </div>
         </RecordContainer>
     );
@@ -31,6 +66,7 @@ const RecordContainer = styled.li`
 
     ion-icon {
         color: ${REMOVE_COLOR};
+        cursor: pointer;
         margin-left: 5px;
     }
 
