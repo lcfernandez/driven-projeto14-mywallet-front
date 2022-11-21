@@ -4,11 +4,14 @@ import { DATE_COLOR, EXPENSE_COLOR, INCOME_COLOR, REMOVE_COLOR } from "../consta
 import TokenContext from "../contexts/TokenContext";
 
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
 export default function Record({amount, date, description, id, type, setUpdate, update}) {
     const [token] = useContext(TokenContext);
+
+    const navigate = useNavigate();
 
     function deleteRecord() {
         if (window.confirm(`Deseja mesmo apagar o registro "${description}"?`)) {
@@ -39,7 +42,7 @@ export default function Record({amount, date, description, id, type, setUpdate, 
     return (
         <RecordContainer type={type}>
             <div>
-                <span>{date.slice(0,5)}</span> {description}
+                <span>{date.slice(0,5)}</span> <span onClick={() => navigate(`/registros/${id}`)}>{description}</span>
             </div>
 
             <div>
@@ -55,6 +58,18 @@ const RecordContainer = styled.li`
     display: flex;
     justify-content: space-between;
 
+    div:nth-child(1) {
+        span:nth-child(1) {
+            color: ${DATE_COLOR};
+            margin-right: 4px;
+        }
+
+        span:nth-child(2) {
+            cursor: pointer;
+            margin-right: 4px;
+        }
+    }
+
     div:nth-child(2) {
         align-items: center;
         display: flex;
@@ -68,10 +83,5 @@ const RecordContainer = styled.li`
         color: ${REMOVE_COLOR};
         cursor: pointer;
         margin-left: 5px;
-    }
-
-    span {
-        color: ${DATE_COLOR};
-        margin-right: 4px;
     }
 `;

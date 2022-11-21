@@ -1,6 +1,9 @@
 import { API_URI } from "../../constants/url";
+
 import FormStyle from "../../assets/styles/FormStyle";
+
 import Header from "../../components/Header";
+
 import TokenContext from "../../contexts/TokenContext";
 
 import { useNavigate } from "react-router-dom";
@@ -35,7 +38,7 @@ export default function RecordNewPage({ recordType }) {
             .post(`${API_URI}/record`, body, config)
             .then(
                 () => {
-                    alert("Registro cadastrado com sucesso!");
+                    alert("Registro salvo com sucesso!");
                     navigate("/registros");
                 }
             )
