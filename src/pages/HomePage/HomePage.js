@@ -1,9 +1,11 @@
 import { APP_TXT_COLOR } from "../../constants/colors";
 import { API_URI } from "../../constants/url";
+
 import FormStyle from "../../assets/styles/FormStyle";
 import HomeContainerStyle from "../../assets/styles/HomeContainerStyle";
 import HomeContentStyle from "../../assets/styles/HomeContentStyle";
 import LinkStyle from "../../assets/styles/LinkStyle";
+
 import Logo from "../../components/Logo";
 import TokenContext from "../../contexts/TokenContext";
 
@@ -71,6 +73,7 @@ export default function HomePage() {
 
                     <input
                         disabled={disabled && true}
+                        minLength="4"
                         onChange={e => setPassword(e.target.value)}
                         placeholder="Senha"
                         required

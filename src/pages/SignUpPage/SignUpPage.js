@@ -1,9 +1,11 @@
 import { APP_TXT_COLOR } from "../../constants/colors";
 import { API_URI } from "../../constants/url";
+
 import FormStyle from "../../assets/styles/FormStyle";
 import HomeContainerStyle from "../../assets/styles/HomeContainerStyle";
 import HomeContentStyle from "../../assets/styles/HomeContentStyle";
 import LinkStyle from "../../assets/styles/LinkStyle";
+
 import Logo from "../../components/Logo";
 
 import { ThreeDots } from "react-loader-spinner";
@@ -79,6 +81,7 @@ export default function SignUpPage() {
 
                     <input
                         disabled={disabled && true}
+                        minLength="4"
                         onChange={e => setPasswordConfirm(e.target.value)}
                         placeholder="Confirme a senha"
                         required

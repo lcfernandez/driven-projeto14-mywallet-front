@@ -1,4 +1,5 @@
 import GlobalStyle from "./assets/styles/GlobalStyle";
+
 import TokenContext from "./contexts/TokenContext";
 
 import HomePage from "./pages/HomePage/HomePage";

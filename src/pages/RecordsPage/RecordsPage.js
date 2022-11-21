@@ -1,182 +1,91 @@
 import { APP_BASE_FONT } from "../../constants/fonts";
+import { API_URI } from "../../constants/url";
 import {
-    DATE_COLOR,
     EXPENSE_COLOR,
     INCOME_COLOR,
     LIST_BG_COLOR,
-    LIST_TXT_EMPTY_COLOR,
-    REMOVE_COLOR
+    LIST_TXT_EMPTY_COLOR
 } from "../../constants/colors";
+
 import Button from "../../components/Button";
 import Header from "../../components/Header";
+import Record from "../../components/Record";
 
+import TokenContext from "../../contexts/TokenContext";
+
+import { ThreeDots } from "react-loader-spinner";
+import { useContext, useEffect, useState } from "react"
+import axios from "axios";
 import styled from "styled-components";
 
 export default function RecordsPage() {
+    const [token] = useContext(TokenContext);
+
+    const [balance, setBalance] = useState(0);
+    const [name, setName] = useState("");
+    const [records, setRecords] = useState(undefined);
+
+    function handleRecords() {
+        if (!records) {
+            return <ThreeDots ariaLabel="three-dots-loading" color={LIST_TXT_EMPTY_COLOR} />;
+        } else if (records.length === 0) {
+            return <p>Não há registros de <br /> entrada ou saída</p>;
+        } else {
+            return (
+                <>
+                    <ul>
+                        {records.map(
+                            record =>
+                                <Record
+                                    amount={record.amount}
+                                    date={record.date}
+                                    description={record.description}
+                                    key={record._id}
+                                    type={record.type}
+                                />
+                        )}
+                    </ul>
+
+                    <Balance balance={balance}>
+                        <div>SALDO</div>
+                        <div>{balance.toFixed(2).toString().replace(".", ",").slice(1)}</div>
+                    </Balance>
+                </>
+            );
+        }
+    }
+
+    useEffect(() => {
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        };
+        
+        axios
+            .get(`${API_URI}/record`, config)
+            .then(
+                res => {
+                    setBalance(res.data.balance);
+                    setName(res.data.user);
+                    setRecords(res.data.records);
+                }
+            )
+            .catch(
+                err => {
+                    console.error(
+                        err.response.data.message || err.response.data
+                    );
+                }
+            );
+    }, []);
+
     return (
         <RecordsPageContainer>
-            <Header icon text="Olá, Fulano" />
+            <Header icon text={`Olá, ${name}`} />
 
-            <RecordsList empty={false}>
-                <ul>
-                    <li>
-                        <div>
-                            <span>30/11</span> Almoço mãe
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">39,90</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>27/11</span> Mercado
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">542,54</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>26/11</span> Compras churrasco
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">67,60</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>20/11</span> Empréstimo Maria
-                        </div>
-
-                        <div>
-                            <span><Amount type="income">500,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>15/11</span> Salário
-                        </div>
-
-                        <div>
-                            <span><Amount type="income">3000,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div>
-                            <span>30/11</span> Almoço mãe
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">39,90</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>27/11</span> Mercado
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">542,54</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>26/11</span> Compras churrasco
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">67,60</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>20/11</span> Empréstimo Maria
-                        </div>
-
-                        <div>
-                            <span><Amount type="income">500,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>15/11</span> Salário
-                        </div>
-
-                        <div>
-                            <span><Amount type="income">3000,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div>
-                            <span>30/11</span> Almoço mãe
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">39,90</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>27/11</span> Mercado
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">542,54</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>26/11</span> Compras churrasco
-                        </div>
-
-                        <div>
-                            <span><Amount type="expense">67,60</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>20/11</span> Empréstimo Maria
-                        </div>
-
-                        <div>
-                            <span><Amount type="income">500,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                    
-                    <li>
-                        <div>
-                            <span>15/11</span> Salário
-                        </div>
-
-                        <div>
-                            <span><Amount type="income">3000,00</Amount></span> <ion-icon name="close-outline"></ion-icon>
-                        </div>
-                    </li>
-                </ul>
-
-                <Balance>
-                    <div>SALDO</div>
-                    <div>2849,96</div>
-                </Balance>
-                {/* Não há registros de
-                <br />
-                entrada ou saída */}
+            <RecordsList records={records && records.length}>
+                {handleRecords()}
             </RecordsList>
 
             <Buttons>
@@ -187,10 +96,6 @@ export default function RecordsPage() {
         </RecordsPageContainer>
     );
 }
-
-const Amount = styled.div`
-    color: ${({type}) => type === "expense" ? EXPENSE_COLOR : INCOME_COLOR};
-`;
 
 const Balance = styled.div`
     display: flex;
@@ -204,7 +109,7 @@ const Balance = styled.div`
     }
 
     div:nth-child(2) {
-        color: ${INCOME_COLOR};
+        color: ${({balance}) => balance < 0 ? EXPENSE_COLOR : INCOME_COLOR};
     }
 `;
 
@@ -226,15 +131,18 @@ const RecordsList = styled.div`
     align-items: center;
     background-color: ${LIST_BG_COLOR};
     border-radius: 5px;
-    color: ${({empty}) => empty ? LIST_TXT_EMPTY_COLOR : "default"};
     display: flex;
     flex-direction: column;
     font-family: ${APP_BASE_FONT};
     font-size: 20px;
     height: calc(100vh - 226px);
-    justify-content: ${({empty}) => empty ? "center" : "space-between"};
+    justify-content: ${({records}) => records ? "space-between" : "center"};
     line-height: 23px;
     text-align: center;
+
+    p {
+        color: ${LIST_TXT_EMPTY_COLOR};
+    }
 
     ul {
         font-size: 16px;
@@ -242,26 +150,6 @@ const RecordsList = styled.div`
         overflow: scroll;
         padding: 23px 6px 23px 10px;
         width: 100%;
-
-        li {
-            display: flex;
-            justify-content: space-between;
-
-            div:nth-child(2) {
-                align-items: center;
-                display: flex;
-            }
-
-            ion-icon {
-                color: ${REMOVE_COLOR};
-                margin-left: 5px;
-            }
-
-            span {
-                color: ${DATE_COLOR};
-                margin-right: 4px;
-            }
-        }
     }
 `;
 
